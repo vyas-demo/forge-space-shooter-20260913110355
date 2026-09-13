@@ -1,0 +1,180 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: #05050a;
+  color: #e8ecff;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+#fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: #05050a;
+}
+
+#fallback.hidden {
+  display: none;
+}
+
+#hud {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  padding: 0.4rem 0.6rem;
+  background: rgba(5, 5, 15, 0.6);
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  pointer-events: none;
+  max-width: 100%;
+  z-index: 2;
+}
+
+#controls {
+  position: absolute;
+  top: 3.6rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 2, 8, 0.7);
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+#overlay-panel {
+  text-align: center;
+  padding: 1.5rem;
+  max-width: min(90vw, 26rem);
+}
+
+#overlay-panel h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.6rem 1rem;
+  background: #2a63ff;
+  color: white;
+}
+
+button:active {
+  background: #1a4bd8;
+}
+
+#touch-controls {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+#touch-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 3rem);
+  grid-template-areas:
+    ".    up    ."
+    "left  .  right"
+    ".   down   .";
+  gap: 0.25rem;
+}
+
+#touch-dpad button[data-touch="up"] { grid-area: up; }
+#touch-dpad button[data-touch="down"] { grid-area: down; }
+#touch-dpad button[data-touch="left"] { grid-area: left; }
+#touch-dpad button[data-touch="right"] { grid-area: right; }
+
+.touch-btn {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(42, 99, 255, 0.65);
+  touch-action: none;
+  user-select: none;
+}
+
+#btn-fire {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: rgba(255, 80, 60, 0.75);
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  #hud {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+  .touch-btn {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+  #btn-fire {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
