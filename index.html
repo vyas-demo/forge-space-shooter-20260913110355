@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Void Runner — 3D Space Shooter</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game-canvas" aria-label="Game viewport"></canvas>
+
+    <div id="fallback" class="hidden" role="alert">
+      <p>WebGL is not available in this browser. Please try a modern desktop or mobile
+      browser with WebGL enabled to play Void Runner.</p>
+    </div>
+
+    <div id="hud" aria-live="polite">
+      <span id="hud-score">Score: 0</span>
+      <span id="hud-shields">Shields: 3</span>
+      <span id="hud-wave">Wave: 0</span>
+      <span id="hud-state">Ready</span>
+    </div>
+
+    <div id="overlay">
+      <div id="overlay-panel">
+        <h1>Void Runner</h1>
+        <p id="overlay-message">Defend against incoming waves. WASD/Arrows to move, Space to fire.</p>
+        <button id="btn-start" type="button">Start</button>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button id="btn-pause" type="button">Pause</button>
+      <button id="btn-restart" type="button">Restart</button>
+    </div>
+
+    <div id="touch-controls" aria-label="Touch controls">
+      <div id="touch-dpad">
+        <button data-touch="up" class="touch-btn" type="button" aria-label="Move up">▲</button>
+        <button data-touch="left" class="touch-btn" type="button" aria-label="Move left">◀</button>
+        <button data-touch="right" class="touch-btn" type="button" aria-label="Move right">▶</button>
+        <button data-touch="down" class="touch-btn" type="button" aria-label="Move down">▼</button>
+      </div>
+      <button data-touch="fire" id="btn-fire" class="touch-btn" type="button" aria-label="Fire">FIRE</button>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
