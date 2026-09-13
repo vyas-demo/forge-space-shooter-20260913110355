@@ -1,0 +1,12 @@
+{
+  "name": "forge-space-shooter-20260913110355",
+  "version": "1.0.0",
+  "description": "Original 3D WebGL space shooter demo",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.js",
+    "start": "node scripts/serve.js"
+  }
+}
